@@ -3975,7 +3975,7 @@ jQuery.extend( {
 			deferred[ tuple[ 0 ] + "With" ] = list.fireWith;
 		} );
 
-		// Make the deferred a promise
+		// CarMake the deferred a promise
 		promise.promise( deferred );
 
 		// Call given func if any
@@ -4441,7 +4441,7 @@ function dataAttr( elem, key, data ) {
 				data = getData( data );
 			} catch ( e ) {}
 
-			// Make sure we set the data so it isn't changed later
+			// CarMake sure we set the data so it isn't changed later
 			dataUser.set( elem, key, data );
 		} else {
 			data = undefined;
@@ -4784,7 +4784,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 		initialInUnit = initialInUnit * 2;
 		jQuery.style( elem, prop, initialInUnit + unit );
 
-		// Make sure we update the tween properties later on
+		// CarMake sure we update the tween properties later on
 		valueParts = valueParts || [];
 	}
 
@@ -4927,7 +4927,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
 	// Support: IE <=11 only
-	// Make sure textarea (and checkbox) defaultValue is properly cloned
+	// CarMake sure textarea (and checkbox) defaultValue is properly cloned
 	div.innerHTML = "<textarea>x</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 
@@ -5216,7 +5216,7 @@ jQuery.event = {
 			jQuery.find.matchesSelector( documentElement, selector );
 		}
 
-		// Make sure that the handler has a unique ID, used to find/remove it later
+		// CarMake sure that the handler has a unique ID, used to find/remove it later
 		if ( !handler.guid ) {
 			handler.guid = jQuery.guid++;
 		}
@@ -5384,7 +5384,7 @@ jQuery.event = {
 		var i, j, ret, matched, handleObj, handlerQueue,
 			args = new Array( arguments.length ),
 
-			// Make a writable jQuery.Event from the native event object
+			// CarMake a writable jQuery.Event from the native event object
 			event = jQuery.event.fix( nativeEvent ),
 
 			handlers = (
@@ -6349,7 +6349,7 @@ jQuery.fn.extend( {
 	replaceWith: function() {
 		var ignored = [];
 
-		// Make the changes, replacing each non-ignored context element with the new content
+		// CarMake the changes, replacing each non-ignored context element with the new content
 		return domManip( this, arguments, function( elem ) {
 			var parent = this.parentNode;
 
@@ -6816,7 +6816,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 		// Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
 		!parseFloat( val ) && jQuery.css( elem, "display", false, styles ) === "inline" ) &&
 
-		// Make sure the element is visible & connected
+		// CarMake sure the element is visible & connected
 		elem.getClientRects().length ) {
 
 		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
@@ -6901,13 +6901,13 @@ jQuery.extend( {
 			return;
 		}
 
-		// Make sure that we're working with the right name
+		// CarMake sure that we're working with the right name
 		var ret, type, hooks,
 			origName = camelCase( name ),
 			isCustomProp = rcustomProp.test( name ),
 			style = elem.style;
 
-		// Make sure that we're working with the right name. We don't
+		// CarMake sure that we're working with the right name. We don't
 		// want to query the value if it is a CSS custom property
 		// since they are user-defined.
 		if ( !isCustomProp ) {
@@ -6929,7 +6929,7 @@ jQuery.extend( {
 				type = "number";
 			}
 
-			// Make sure that null and NaN values aren't set (#7116)
+			// CarMake sure that null and NaN values aren't set (#7116)
 			if ( value == null || value !== value ) {
 				return;
 			}
@@ -6976,7 +6976,7 @@ jQuery.extend( {
 			origName = camelCase( name ),
 			isCustomProp = rcustomProp.test( name );
 
-		// Make sure that we're working with the right name. We don't
+		// CarMake sure that we're working with the right name. We don't
 		// want to modify the value if it is a CSS custom property
 		// since they are user-defined.
 		if ( !isCustomProp ) {
@@ -7001,7 +7001,7 @@ jQuery.extend( {
 			val = cssNormalTransform[ name ];
 		}
 
-		// Make numeric if forced or a qualifier was provided and val looks numeric
+		// CarMake numeric if forced or a qualifier was provided and val looks numeric
 		if ( extra === "" || extra ) {
 			num = parseFloat( val );
 			return extra === true || isFinite( num ) ? num || 0 : val;
@@ -8653,7 +8653,7 @@ jQuery.each(
 
 
 // Support: Android <=4.0 only
-// Make sure we trim BOM and NBSP
+// CarMake sure we trim BOM and NBSP
 var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 
 // Bind a function to a context, optionally partially applying any

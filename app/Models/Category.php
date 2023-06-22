@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Builder;
 */
 class Category extends Model
 {
+    use HasFactory;
     protected $table = 'categories';
     protected $guarded = false;
 }

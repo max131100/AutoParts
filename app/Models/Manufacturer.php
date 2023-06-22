@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Manufacturer extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
+    protected $table = 'manufacturers';
+    protected $guarded = false;
 }

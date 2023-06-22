@@ -5,7 +5,7 @@
 
 ( function( factory ) {
 	"use strict";
-	
+
 	if ( typeof define === "function" && define.amd ) {
 
 		// AMD. Register as an anonymous module.
@@ -897,12 +897,12 @@ $.fn.position = function( options ) {
 		return _position.apply( this, arguments );
 	}
 
-	// Make a copy, we don't want to modify arguments
+	// CarMake a copy, we don't want to modify arguments
 	options = $.extend( {}, options );
 
 	var atOffset, targetWidth, targetHeight, targetOffset, basePosition, dimensions,
 
-		// Make sure string options are treated as CSS selectors
+		// CarMake sure string options are treated as CSS selectors
 		target = typeof options.of === "string" ?
 			$( document ).find( options.of ) :
 			$( options.of ),
@@ -4657,7 +4657,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 					} )
 					.hide();
 
-		// Make sure at least one header is in the tab order
+		// CarMake sure at least one header is in the tab order
 		if ( !this.active.length ) {
 			this.headers.eq( 0 ).attr( "tabIndex", 0 );
 		} else {
@@ -6377,7 +6377,7 @@ var widgetsControlgroup = $.widget( "ui.controlgroup", {
 			var labels;
 			var options = {};
 
-			// Make sure the widget has a selector set
+			// CarMake sure the widget has a selector set
 			if ( !selector ) {
 				return;
 			}
@@ -6398,7 +6398,7 @@ var widgetsControlgroup = $.widget( "ui.controlgroup", {
 				return;
 			}
 
-			// Make sure the widget actually exists
+			// CarMake sure the widget actually exists
 			if ( !$.fn[ widget ] ) {
 				return;
 			}
@@ -7077,7 +7077,7 @@ $.widget( "ui.button", {
 			this._updateIcon( key, value );
 		}
 
-		// Make sure we can't end up with a button that has neither text nor icon
+		// CarMake sure we can't end up with a button that has neither text nor icon
 		if ( key === "showLabel" ) {
 				this._toggleClass( "ui-button-icon-only", null, !value );
 				this._updateTooltip();
@@ -7111,7 +7111,7 @@ $.widget( "ui.button", {
 
 	refresh: function() {
 
-		// Make sure to only check disabled if its an element that supports this otherwise
+		// CarMake sure to only check disabled if its an element that supports this otherwise
 		// check for the disabled class to determine state
 		var isDisabled = this.element.is( "input, button" ) ?
 			this.element[ 0 ].disabled : this.element.hasClass( "ui-button-disabled" );
@@ -7506,7 +7506,7 @@ $.extend( Datepicker.prototype, {
 		}
 	},
 
-	/* Make attachments based on settings. */
+	/* CarMake attachments based on settings. */
 	_attachments: function( input, inst ) {
 		var showOn, buttonText, buttonImage,
 			appendText = this._get( inst, "appendText" ),
@@ -17427,7 +17427,7 @@ $.widget( "ui.spinner", {
 		var base, aboveMin,
 			options = this.options;
 
-		// Make sure we're at a valid step
+		// CarMake sure we're at a valid step
 		// - find out where we are relative to the base (min or 0)
 		base = options.min !== null ? options.min : 0;
 		aboveMin = value - base;
@@ -17988,7 +17988,7 @@ $.widget( "ui.tabs", {
 				"aria-hidden": "true"
 			} );
 
-		// Make sure one tab is in the tab order
+		// CarMake sure one tab is in the tab order
 		if ( !this.active.length ) {
 			this.tabs.eq( 0 ).attr( "tabIndex", 0 );
 		} else {
