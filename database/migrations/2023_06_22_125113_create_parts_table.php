@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('parts', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->string('article');
+            $table->unsignedBigInteger('manufacturer_id');
+            $table->foreign('manufacturer_id', 'part_manufacturer_id_fk')->on('manufacturers')->references('id');
+            $table->double('price');
+            $table->integer('qty_on_hand');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id', 'part_category_id_fk')->on('categories')->references('id');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('parts');
+    }
+};

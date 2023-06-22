@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cars', function (Blueprint $table) {
+        Schema::create('manufacturers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('car_make_id');
-            $table->foreign('car_make_id', 'car_car_make_fk')->on('car_makes')->references('id');
-            $table->unsignedBigInteger('car_model_id');
-            $table->foreign('car_model_id', 'car_car_model_fk')->on('car_models')->references('id');
-            $table->integer('year');
+            $table->string('name');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cars');
+        Schema::dropIfExists('manufacturers');
     }
 };
