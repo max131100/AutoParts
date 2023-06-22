@@ -26,3 +26,14 @@ Route::group(['prefix' => 'categories'], function () {
     Route::delete('/{category}', [App\Http\Controllers\Category\DeleteController::class, '__invoke'])->name('category.delete');
 });
 
+Route::group(['prefix' => 'makes'], function () {
+    Route::get('/', [App\Http\Controllers\Make\IndexController::class, '__invoke'])->name('make.index');
+    Route::get('/create', [App\Http\Controllers\Make\CreateController::class, '__invoke'])->name('make.create');
+    Route::post('/', [App\Http\Controllers\Make\StoreController::class, '__invoke'])->name('make.store');
+    Route::get('/{make}/edit', [App\Http\Controllers\Make\EditController::class, '__invoke'])->name('make.edit');
+    Route::get('/{make}', [App\Http\Controllers\Make\ShowController::class, '__invoke'])->name('make.show');
+    Route::patch('/{make}', [App\Http\Controllers\Make\UpdateController::class, '__invoke'])->name('make.update');
+    Route::delete('/{make}', [App\Http\Controllers\Make\DeleteController::class, '__invoke'])->name('make.delete');
+});
+
+
