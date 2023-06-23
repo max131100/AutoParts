@@ -55,5 +55,14 @@ Route::group(['prefix' => 'cars'], function () {
     Route::get('/{car}', [App\Http\Controllers\Car\ShowController::class, '__invoke'])->name('car.show');
     Route::patch('/{car}', [App\Http\Controllers\Car\UpdateController::class, '__invoke'])->name('car.update');
     Route::delete('/{car}', [App\Http\Controllers\Car\DeleteController::class, '__invoke'])->name('car.delete');
+});
 
+Route::group(['prefix' => 'manufacturers'], function () {
+    Route::get('/', [App\Http\Controllers\Manufacturer\IndexController::class, '__invoke'])->name('manufacturer.index');
+    Route::get('/manufacturer', [App\Http\Controllers\Manufacturer\CreateController::class, '__invoke'])->name('manufacturer.create');
+    Route::post('/', [App\Http\Controllers\Manufacturer\StoreController::class, '__invoke'])->name('manufacturer.store');
+    Route::get('/{manufacturer}/edit', [App\Http\Controllers\Manufacturer\EditController::class, '__invoke'])->name('manufacturer.edit');
+    Route::get('/{manufacturer}', [App\Http\Controllers\Manufacturer\ShowController::class, '__invoke'])->name('manufacturer.show');
+    Route::patch('/{manufacturer}', [App\Http\Controllers\Manufacturer\UpdateController::class, '__invoke'])->name('manufacturer.update');
+    Route::delete('/{manufacturer}', [App\Http\Controllers\Manufacturer\DeleteController::class, '__invoke'])->name('manufacturer.delete');
 });
