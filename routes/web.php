@@ -29,6 +29,7 @@ Route::group(['prefix' => 'categories'], function () {
 Route::group(['prefix' => 'makes'], function () {
     Route::get('/', [App\Http\Controllers\Make\IndexController::class, '__invoke'])->name('make.index');
     Route::get('/create', [App\Http\Controllers\Make\CreateController::class, '__invoke'])->name('make.create');
+    Route::get('/search', [App\Http\Controllers\Make\SearchController::class, '__invoke'])->name('make.search');
     Route::post('/', [App\Http\Controllers\Make\StoreController::class, '__invoke'])->name('make.store');
     Route::get('/{make}/edit', [App\Http\Controllers\Make\EditController::class, '__invoke'])->name('make.edit');
     Route::get('/{make}', [App\Http\Controllers\Make\ShowController::class, '__invoke'])->name('make.show');
@@ -36,4 +37,17 @@ Route::group(['prefix' => 'makes'], function () {
     Route::delete('/{make}', [App\Http\Controllers\Make\DeleteController::class, '__invoke'])->name('make.delete');
 });
 
+Route::group(['prefix' => 'models'], function () {
+    Route::get('/', [App\Http\Controllers\Model\IndexController::class, '__invoke'])->name('model.index');
+    Route::get('/model', [App\Http\Controllers\Model\CreateController::class, '__invoke'])->name('model.create');
+    Route::post('/', [App\Http\Controllers\Model\StoreController::class, '__invoke'])->name('model.store');
+    Route::get('/{model}/edit', [App\Http\Controllers\Model\EditController::class, '__invoke'])->name('model.edit');
+    Route::get('/{model}', [App\Http\Controllers\Model\ShowController::class, '__invoke'])->name('model.show');
+    Route::patch('/{model}', [App\Http\Controllers\Model\UpdateController::class, '__invoke'])->name('model.update');
+    Route::delete('/{model}', [App\Http\Controllers\Model\DeleteController::class, '__invoke'])->name('model.delete');
 
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
