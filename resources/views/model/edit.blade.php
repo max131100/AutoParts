@@ -32,6 +32,7 @@
                     <div class="form-group mb-5">
                         <label for="make">Make</label>
                         <select id="make" class="form-control" name="car_make_id">
+                            <option value="">Select make</option>
                             @foreach ($makes as $make)
                                 <option
                                     {{$make->id === $model->make->id ? 'selected' : ''}}
@@ -52,25 +53,10 @@
 @section('scripts')
     <script>
         jQuery.noConflict();
-        $(document).ready(function($) {
+        $(document).ready(function() {
             $('#make').select2({
-                placeholder: "Searching...",
-                ajax: {
-                    url: "{{ route('make.search') }}",
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            q: params.term
-                        };
-                    },
-                    processResults: function (data) {
-                        return {
-                            results: data
-                        };
-                    },
-                    cache: true
-                }
+                placeholder: "Search make...",
+                allowClear: true,
             });
         });
     </script>

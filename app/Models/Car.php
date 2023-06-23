@@ -16,11 +16,11 @@ class Car extends Model
 
 
     public function make() {
-        return $this->belongsTo(CarMake::class, 'make_id', 'id');
+        return $this->belongsTo(CarMake::class, 'car_make_id', 'id');
     }
 
     public function model() {
-        return $this->belongsTo(CarModel::class, 'model_id', 'id');
+        return $this->belongsTo(CarModel::class, 'car_model_id', 'id');
     }
 
     public function parts() {

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Add car model</h1>
+                    <h1 class="m-0">Add car</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -22,20 +22,29 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('model.store')}}", method="post">
+                <form action="{{route('car.store')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Model">
-                    </div>
-                    <div class="form-group">
-                        <select id="make" class="form-control" name="car_make_id">
-                            <option value="">Select make</option>
-                            @foreach ($makes as $make)
+                        <select id="model" class="form-control" name="car_model_id">
+                            @foreach ($models as $model)
                                 <option
-                                    value="{{$make->id}}">{{$make->name}}</option>
+                                    value="{{$model->id}}" data-make-id="{{$model->make->id}}">{{$model->name}} {{$model->make->name}}</option>
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <select name="year" class="form-control">
+                            <option value="">Select year</option>
+                            @php
+                                $currentYear = date('Y');
+                                $startYear = 1970;
+                            @endphp
+                            @for ($year = $currentYear; $year >= $startYear; $year--)
+                                <option value="{{ $year }}">{{ $year }}</option>
+                            @endfor
+                        </select>
+                    </div>
+                    <input type="hidden" id="car_make_id" name="car_make_id">
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Create">
                     </div>
@@ -45,16 +54,20 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-@endsection
 
+@endsection
 @section('scripts')
     <script>
         jQuery.noConflict();
         $(document).ready(function() {
-            $('#make').select2({
-                placeholder: "Search make...",
-                allowClear: true,
+            $('#model').select2({
+                placeholder: 'Select make',
+                allowClear: true
+            }).on('change', function() {
+                var makeId = $(this).find(':selected').data('make-id');
+                $('#car_make_id').val(makeId);
             });
         });
     </script>
 @endsection
+

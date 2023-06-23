@@ -1,11 +1,12 @@
 @extends('layout.main')
+
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Add car model</h1>
+                    <h1 class="m-0">Edit car ({{$car->make->name}} {{$car->model->name}})</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -22,22 +23,25 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('model.store')}}", method="post">
+                <form action="{{route('car.update', $car->id)}}" method="post">
                     @csrf
+                    @method('patch')
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Model">
-                    </div>
-                    <div class="form-group">
-                        <select id="make" class="form-control" name="car_make_id">
-                            <option value="">Select make</option>
-                            @foreach ($makes as $make)
+                        <select name="year" class="form-control">
+                            <option value="">Select year</option>
+                            @php
+                                $currentYear = date('Y');
+                                $startYear = 1970;
+                            @endphp
+                            @for ($year = $currentYear; $year >= $startYear; $year--)
                                 <option
-                                    value="{{$make->id}}">{{$make->name}}</option>
-                            @endforeach
+                                    {{$car->year === $year ? 'selected' : ''}}
+                                    value="{{ $year }}">{{ $year }}</option>
+                            @endfor
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Create">
+                        <input type="submit" class="btn btn-primary" value="Edit">
                     </div>
                 </form>
             </div>
@@ -45,16 +49,4 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-@endsection
-
-@section('scripts')
-    <script>
-        jQuery.noConflict();
-        $(document).ready(function() {
-            $('#make').select2({
-                placeholder: "Search make...",
-                allowClear: true,
-            });
-        });
-    </script>
 @endsection

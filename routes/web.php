@@ -29,7 +29,6 @@ Route::group(['prefix' => 'categories'], function () {
 Route::group(['prefix' => 'makes'], function () {
     Route::get('/', [App\Http\Controllers\Make\IndexController::class, '__invoke'])->name('make.index');
     Route::get('/create', [App\Http\Controllers\Make\CreateController::class, '__invoke'])->name('make.create');
-    Route::get('/search', [App\Http\Controllers\Make\SearchController::class, '__invoke'])->name('make.search');
     Route::post('/', [App\Http\Controllers\Make\StoreController::class, '__invoke'])->name('make.store');
     Route::get('/{make}/edit', [App\Http\Controllers\Make\EditController::class, '__invoke'])->name('make.edit');
     Route::get('/{make}', [App\Http\Controllers\Make\ShowController::class, '__invoke'])->name('make.show');
@@ -48,6 +47,13 @@ Route::group(['prefix' => 'models'], function () {
 
 });
 
-Auth::routes();
+Route::group(['prefix' => 'cars'], function () {
+    Route::get('/', [App\Http\Controllers\Car\IndexController::class, '__invoke'])->name('car.index');
+    Route::get('/car', [App\Http\Controllers\Car\CreateController::class, '__invoke'])->name('car.create');
+    Route::post('/', [App\Http\Controllers\Car\StoreController::class, '__invoke'])->name('car.store');
+    Route::get('/{car}/edit', [App\Http\Controllers\Car\EditController::class, '__invoke'])->name('car.edit');
+    Route::get('/{car}', [App\Http\Controllers\Car\ShowController::class, '__invoke'])->name('car.show');
+    Route::patch('/{car}', [App\Http\Controllers\Car\UpdateController::class, '__invoke'])->name('car.update');
+    Route::delete('/{car}', [App\Http\Controllers\Car\DeleteController::class, '__invoke'])->name('car.delete');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
