@@ -66,3 +66,13 @@ Route::group(['prefix' => 'manufacturers'], function () {
     Route::patch('/{manufacturer}', [App\Http\Controllers\Manufacturer\UpdateController::class, '__invoke'])->name('manufacturer.update');
     Route::delete('/{manufacturer}', [App\Http\Controllers\Manufacturer\DeleteController::class, '__invoke'])->name('manufacturer.delete');
 });
+
+Route::group(['prefix' => 'parts'], function () {
+    Route::get('/', [App\Http\Controllers\Part\IndexController::class, '__invoke'])->name('part.index');
+    Route::get('/part', [App\Http\Controllers\Part\CreateController::class, '__invoke'])->name('part.create');
+    Route::post('/', [App\Http\Controllers\Part\StoreController::class, '__invoke'])->name('part.store');
+    Route::get('/{part}/edit', [App\Http\Controllers\Part\EditController::class, '__invoke'])->name('part.edit');
+    Route::get('/{part}', [App\Http\Controllers\Part\ShowController::class, '__invoke'])->name('part.show');
+    Route::patch('/{part}', [App\Http\Controllers\Part\UpdateController::class, '__invoke'])->name('part.update');
+    Route::delete('/{part}', [App\Http\Controllers\Part\DeleteController::class, '__invoke'])->name('part.delete');
+});
