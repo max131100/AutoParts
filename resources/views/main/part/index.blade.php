@@ -21,6 +21,6 @@
         @endforeach
     </div>
     <div>
-        {{$parts->links()}}
+        {{$parts->withQueryString()->links()}}
     </div>
 @endsection
