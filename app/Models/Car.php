@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Car extends Model
@@ -15,15 +17,18 @@ class Car extends Model
     protected $guarded = false;
 
 
-    public function make() {
+    public function make(): BelongsTo
+    {
         return $this->belongsTo(CarMake::class, 'car_make_id', 'id');
     }
 
-    public function model() {
+    public function model(): BelongsTo
+    {
         return $this->belongsTo(CarModel::class, 'car_model_id', 'id');
     }
 
-    public function parts() {
+    public function parts(): BelongsToMany
+    {
         return $this->belongsToMany(Part::class, 'car_parts', 'car_id', 'part_id');
     }
 }
