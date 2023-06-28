@@ -54,6 +54,11 @@
                     <a class="nav-link" href="{{route('main.index')}}">Admin</a>
                 </li>
                 @endcan
+                @if(auth()->user() !== null)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.cart.index')}}">Cart</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

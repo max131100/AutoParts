@@ -20,6 +20,12 @@ Route::group(['prefix' => 'parts'], function () {
     Route::get('/', [App\Http\Controllers\User\Part\IndexController::class, '__invoke'])->name('user.part.index');
 });
 
+Route::group(['prefix' => 'cart', 'middleware' => 'user'], function () {
+   Route::get('/', [App\Http\Controllers\User\Cart\IndexController::class, '__invoke'])->name('user.cart.index');
+   Route::patch('/', [App\Http\Controllers\User\Cart\AddController::class, '__invoke'])->name('user.cart.add');
+    Route::delete('/', [App\Http\Controllers\User\Cart\DeleteController::class, '__invoke'])->name('user.cart.delete');
+});
+
 Route::group(['prefix' => 'admin/', 'middleware' => 'admin'], function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('main.index');
 

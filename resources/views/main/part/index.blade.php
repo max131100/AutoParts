@@ -6,7 +6,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{$part->name}}</h5>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <form action="{{ route('user.cart.add') }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="part_id" value="{{$part->id}}">
+                            <button type="submit" class="btn btn-primary">Add to cart</button>
+                        </form>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><b>Price: </b>{{$part->price}}$</li>
                             <li class="list-group-item"><b>Mnf: </b>{{$part->manufacturer->name}}</li>

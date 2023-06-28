@@ -30,4 +30,8 @@ class Part extends Model
     public function cars() {
         return $this->belongsToMany(Car::class, 'car_parts', 'part_id', 'car_id');
     }
+
+    public function carts() {
+        return $this->belongsToMany(Cart::class, 'cart_parts', 'part_id', 'cart_id');
+    }
 }
