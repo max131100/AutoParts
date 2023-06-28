@@ -58,6 +58,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('user.cart.index')}}">Cart</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.balance.index')}}">Balance</a>
+                    </li>
                 @endif
             </ul>
         </div>

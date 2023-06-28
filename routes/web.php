@@ -26,6 +26,11 @@ Route::group(['prefix' => 'cart', 'middleware' => 'user'], function () {
     Route::delete('/', [App\Http\Controllers\User\Cart\DeleteController::class, '__invoke'])->name('user.cart.delete');
 });
 
+Route::group(['prefix' => 'balance', 'middleware' => 'user'], function () {
+    Route::get('/', [App\Http\Controllers\User\Balance\IndexController::class, '__invoke'])->name('user.balance.index');
+    Route::patch('/', [App\Http\Controllers\User\Balance\AddController::class, '__invoke'])->name('user.balance.add');
+});
+
 Route::group(['prefix' => 'admin/', 'middleware' => 'admin'], function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('main.index');
 
