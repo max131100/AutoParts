@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -41,7 +41,9 @@
                                 @foreach($manufacturers as $manufacturer)
                                     <tr>
                                         <td>{{$manufacturer->id}}</td>
-                                        <td><a href="{{route('manufacturer.show', $manufacturer->id)}}">{{$manufacturer->name}}</a></td>
+                                        <td>
+                                            <a href="{{route('manufacturer.show', $manufacturer->id)}}">{{$manufacturer->name}}</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

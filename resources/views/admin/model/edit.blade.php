@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -53,7 +53,7 @@
 @section('scripts')
     <script>
         jQuery.noConflict();
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#make').select2({
                 placeholder: "Search make...",
                 allowClear: true,

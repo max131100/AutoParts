@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -77,7 +77,7 @@
 @section('scripts')
     <script>
         jQuery.noConflict();
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#category').select2({
                 placeholder: 'Select category',
                 allowClear: true

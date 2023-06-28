@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -30,13 +30,16 @@
                         <input type="text" name="name" value="{{$part->name}}" class="form-control" placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="description" value="{{$part->description}}" class="form-control" placeholder="Description">
+                        <input type="text" name="description" value="{{$part->description}}" class="form-control"
+                               placeholder="Description">
                     </div>
                     <div class="form-group">
-                        <input type="number" step="0.01" name="price" value="{{$part->price}}" class="form-control" placeholder="Price">
+                        <input type="number" step="0.01" name="price" value="{{$part->price}}" class="form-control"
+                               placeholder="Price">
                     </div>
                     <div class="form-group">
-                        <input type="number" name="qty_on_hand" value="{{$part->qty_on_hand}}" class="form-control" placeholder="Quantity">
+                        <input type="number" name="qty_on_hand" value="{{$part->qty_on_hand}}" class="form-control"
+                               placeholder="Quantity">
                     </div>
                     <div class="form-group">
                         <select id="cars" class="form-control" name="compatible_cars[]" multiple>
@@ -62,7 +65,7 @@
 @section('scripts')
     <script>
         jQuery.noConflict();
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#cars').select2({
                 placeholder: 'Select compatible cars',
                 allowClear: true

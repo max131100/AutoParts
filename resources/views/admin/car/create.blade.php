@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -28,7 +28,8 @@
                         <select id="model" class="form-control" name="car_model_id">
                             @foreach ($models as $model)
                                 <option
-                                    value="{{$model->id}}" data-make-id="{{$model->make->id}}">{{$model->name}} {{$model->make->name}}</option>
+                                    value="{{$model->id}}"
+                                    data-make-id="{{$model->make->id}}">{{$model->name}} {{$model->make->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -59,11 +60,11 @@
 @section('scripts')
     <script>
         jQuery.noConflict();
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#model').select2({
                 placeholder: 'Select make',
                 allowClear: true
-            }).on('change', function() {
+            }).on('change', function () {
                 var makeId = $(this).find(':selected').data('make-id');
                 $('#car_make_id').val(makeId);
             });

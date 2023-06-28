@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('category.store')}}", method="post">
+                <form action="{{route('category.store')}}" , method="post">
                     @csrf
 
                     <div class="form-group">

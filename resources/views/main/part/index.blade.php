@@ -1,4 +1,4 @@
-@extends('main.layout.main')
+@extends('layouts.main')
 @section('content')
     <div class="row">
         @foreach($parts as $part)

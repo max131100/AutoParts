@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -39,22 +39,22 @@
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>{{$car->id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Make</td>
-                                        <td>{{$car->make->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Model</td>
-                                        <td>{{$car->model->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Year</td>
-                                        <td>{{$car->year}}</td>
-                                    </tr>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>{{$car->id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Make</td>
+                                    <td>{{$car->make->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Model</td>
+                                    <td>{{$car->model->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Year</td>
+                                    <td>{{$car->year}}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

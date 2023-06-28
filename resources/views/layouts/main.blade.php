@@ -25,19 +25,36 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Authorize
+                        @if(auth()->user() !== null)
+                            {{auth()->user()->name}}
+                            @else
+                            Authorize
+                        @endif
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Sign in</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sign up</a></li>
+                        @if(auth()->user() === null)
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Sign in</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">Sign up</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        @else
+                            <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        @endif
                     </ul>
                 </li>
+                @can('view', auth()->user())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('main.index')}}">Admin</a>
+                </li>
+                @endcan
             </ul>
-            <form class="d-flex" action="{{route('user.part.index')}}" method="get">
-                <input class="form-control me-2" type="search" placeholder="Search by category, article or title" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
         </div>
     </div>
 </nav>

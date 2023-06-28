@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -27,7 +27,8 @@
                     <div class="card">
                         <div class="card-header d-flex p-3">
                             <div class="mr-3">
-                                <a href="{{route('manufacturer.edit', $manufacturer->id)}}" class="btn btn-primary">Edit manufacturer</a>
+                                <a href="{{route('manufacturer.edit', $manufacturer->id)}}" class="btn btn-primary">Edit
+                                    manufacturer</a>
                             </div>
                             <form action="{{route('manufacturer.delete', $manufacturer->id)}}" method="post">
                                 @csrf
@@ -39,14 +40,14 @@
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>{{$manufacturer->id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>{{$manufacturer->name}}</td>
-                                    </tr>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>{{$manufacturer->id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>{{$manufacturer->name}}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

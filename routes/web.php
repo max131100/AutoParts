@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Main\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,7 @@ Route::group(['prefix' => 'parts'], function () {
     Route::get('/', [App\Http\Controllers\User\Part\IndexController::class, '__invoke'])->name('user.part.index');
 });
 
-Route::group(['prefix' => 'admin/'], function () {
+Route::group(['prefix' => 'admin/', 'middleware' => 'admin'], function () {
     Route::get('/', [IndexController::class, '__invoke'])->name('main.index');
 
     Route::group(['prefix' => 'categories'], function () {
@@ -82,3 +83,5 @@ Route::group(['prefix' => 'admin/'], function () {
         Route::delete('/{part}', [\App\Http\Controllers\Admin\Part\DeleteController::class, '__invoke'])->name('part.delete');
     });
 });
+
+Auth::routes();

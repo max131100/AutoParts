@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -23,11 +23,12 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('category.update', $category->id)}}", method="post">
+                <form action="{{route('category.update', $category->id)}}" , method="post">
                     @csrf
                     @method('patch')
                     <div class="form-group">
-                        <input type="text" name="title" value="{{$category->title}}" class="form-control" placeholder="Title">
+                        <input type="text" name="title" value="{{$category->title}}" class="form-control"
+                               placeholder="Title">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Edit">

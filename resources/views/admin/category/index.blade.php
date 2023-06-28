@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -41,7 +41,8 @@
                                 @foreach($categories as $category)
                                     <tr>
                                         <td>{{$category->id}}</td>
-                                        <td><a href="{{route('category.show', $category->id)}}">{{$category->title}}</a></td>
+                                        <td><a href="{{route('category.show', $category->id)}}">{{$category->title}}</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

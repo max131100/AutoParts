@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -27,7 +27,8 @@
                     @csrf
                     @method('patch')
                     <div class="form-group">
-                        <input type="text" name="name" value="{{$manufacturer->name}}" class="form-control" placeholder="Name">
+                        <input type="text" name="name" value="{{$manufacturer->name}}" class="form-control"
+                               placeholder="Name">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Edit">

@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -39,46 +39,46 @@
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>{{$part->id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>{{$part->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Description</td>
-                                        <td>{{$part->description}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Article</td>
-                                        <td>{{$part->article}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Manufacturer</td>
-                                        <td>{{$part->manufacturer->name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Price</td>
-                                        <td>{{$part->price}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Quantity</td>
-                                        <td>{{$part->qty_on_hand}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Category</td>
-                                        <td>{{$part->category->title}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Compatible cars</td>
-                                        <td>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>{{$part->id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>{{$part->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>{{$part->description}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Article</td>
+                                    <td>{{$part->article}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Manufacturer</td>
+                                    <td>{{$part->manufacturer->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>{{$part->price}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Quantity</td>
+                                    <td>{{$part->qty_on_hand}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Category</td>
+                                    <td>{{$part->category->title}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Compatible cars</td>
+                                    <td>
                                         @foreach($part->cars as $car)
                                             {{$car->make->name}} {{$car->model->name}}, <br>
                                         @endforeach
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

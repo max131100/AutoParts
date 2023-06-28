@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('layouts.admin')
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -22,7 +22,7 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('model.store')}}", method="post">
+                <form action="{{route('model.store')}}" , method="post">
                     @csrf
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Model">
@@ -50,7 +50,7 @@
 @section('scripts')
     <script>
         jQuery.noConflict();
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#make').select2({
                 placeholder: "Search make...",
                 allowClear: true,
