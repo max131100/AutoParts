@@ -9,8 +9,14 @@
         </tr>
         </thead>
         <tbody>
+        @php
+            $totalPrice = 0;
+        @endphp
         @foreach($parts as $part)
         <tr>
+            @php
+                $totalPrice += $part->price;
+            @endphp
             <td>{{$part->name}}</td>
             <td>{{$part->price}}</td>
             <td><form action="{{ route('user.cart.delete')}}" method="POST">
@@ -22,5 +28,11 @@
         </tr>
         @endforeach
         </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2"></td>
+            <td>Total Price: {{$totalPrice}}</td>
+        </tr>
+        </tfoot>
     </table>
 @endsection
